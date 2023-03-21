@@ -1,0 +1,31 @@
+int A=0;
+char arreglo[100];
+int pos=0;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  
+  
+  if(Serial.available()){
+    int c=Serial.read();
+    
+    if(c!='*'){
+    	
+         if (c>=91){
+           	arreglo[pos]=char(c-32);
+         }
+     	 else{
+        	arreglo[pos]=char (c);
+       }
+      	pos++;
+    }
+    else{
+      Serial.println(arreglo);  
+    }
+   }
+}
